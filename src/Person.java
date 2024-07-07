@@ -1,11 +1,12 @@
 public class Person {
-    private  String firstName;
-    private  String lastName;
-    private double height;
+    protected   String firstName;
+    protected  String lastName;
+    protected double height;
 
-    public Person(String firstName, String lastName) {
+    public Person(String firstName, String lastName, double height) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.height = height;
     }
 
     public String getFirstName() {
@@ -30,6 +31,15 @@ public class Person {
 
     private void setHeight(double height){
         this.height=height;
+    }
+
+    @Override
+    public String toString() {
+        // to check height in feet and inches
+        int heightInches = (int) getHeight() * 12;
+
+        return "Name: " + firstName + " " + lastName + "\n"+
+                "Height " + height + "ft , " + heightInches + " Inches" + "\n";
     }
 
 }
